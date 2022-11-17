@@ -1,0 +1,7 @@
+__pycache__/
+.vscode/
+*.db
+*.pyc
+config.json
+.RData
+nohup.out
