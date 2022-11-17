@@ -25,7 +25,6 @@ class AnalysisBaseAttributes:
         self.test_hash = _hash(details)
         self.logger = logger
         self.code_converter = CodeConverter(years[-1])
-        self.graphs = MbsGraphColouring(logger, self.code_converter)
         self.plots = PlotUtils(logger)
         self.test_details = details
         self.start_year = years[0]
