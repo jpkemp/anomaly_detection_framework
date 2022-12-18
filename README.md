@@ -2,7 +2,9 @@
 This repository contains an extract of a broader framework built to discover anomalous patterns among providers in MBS and PBS datasets, as part of an Industry PhD (IPhD) scholarship.<br/>
 It was designed to allow rapid prototyping of anomaly detection processes, as well as providing flexibility of input data, and reproducibility and traceability through automated logging functions. <br/>
 Implemented detection processes will be released alongside publication of papers describing the processes, as they occur. <br/>
-The initial release includes a sequence pattern detection process, to be presented at the Machine Learning and Artificial Intelligence in Bioinformatics and Medical Informatics workshop of the IEEE International Conference on Bioinformatics and Biomedicine 2022. <br/>
+Two processes are currently included:
+• A sequence pattern detection process, presented at the Machine Learning and Artificial Intelligence in Bioinformatics and Medical Informatics workshop of the IEEE International Conference on Bioinformatics and Biomedicine 2022. <br/>
+• A context discovery and cost estimation process, to be presented at HEALTHINF 2023. <br/>
 
 ## Structure
 ### Overview
