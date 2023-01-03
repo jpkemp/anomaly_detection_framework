@@ -2,8 +2,8 @@
 from overrides import overrides
 from gensim import corpora
 from gensim.models import LdaModel
-from src.subheading_role_costs.helper_classes.role import Role
-from src.subheading_role_costs.layer_models.base import AbstractLayerModel
+from src.analyses.ontology_context_discovery.helper_classes.role import Role
+from src.analyses.ontology_context_discovery.layer_models.base import AbstractLayerModel
 
 class LdaRoles(AbstractLayerModel):
     '''Data analysis base class'''

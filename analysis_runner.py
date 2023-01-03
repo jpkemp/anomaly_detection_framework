@@ -9,10 +9,17 @@ if __name__ == "__main__":
     notes="",
     params={},
     data_extract_specification = "sample_data",
+
+    ###### ontology context discovery ######
+    # analysis_file_location="ontology_context_discovery",
+    # analysis_file_name='role_costs',
+
+    ###### sequential pattern mining ######
+    analysis_file_location="sequence_detection",
     analysis_file_name='extract_initiator_local_episodes',
     # analysis_file_name='provider_pattern_comparison',
     # analysis_file_name='rule_combination',
-    analysis_file_location="sequence_detection",
+
     years=["2014"]
     )
 

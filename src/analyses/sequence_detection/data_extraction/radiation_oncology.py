@@ -1,10 +1,13 @@
 from datetime import datetime
-from src.core.base.abstract_data_extraction import AbstractDataExtraction
-from src.core.base.base_analysis import AnalysisBase
+from overrides import overrides
+import pandas as pd
+from src.core.base.base_data_extraction import DataExtractionBase
+from src.core.base.abstract_analysis import AbstractAnalysisBase
 from src.core.io.spark.spark_wrapper import SparkWrapper, MbsExtractTypes, PbsExtractTypes
 from src.core.mbs_info.code_converter import CodeConverter
+from src.core.io import config as hc
 
-class DataExtraction(AbstractDataExtraction):
+class DataExtraction(DataExtractionBase):
     @overrides
     def extract_data(self, analysis: AnalysisBase):
         path = f"patients_radiation_planning_data_test.pqt"

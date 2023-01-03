@@ -16,7 +16,7 @@ class Analysis(AnalysisBase):
         '''Parameters required for the analysis'''
         provider_id: str = ""
         test_hash: int = None
-        output_name: str = "src.subheading_role_costs_role_costs"
+        output_name: str = "src.analyses.ontology_context_discovery_role_costs"
 
     @overrides
     def run_test(self) -> None:

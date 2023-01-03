@@ -6,15 +6,14 @@ import pandas as pd
 from overrides import overrides
 from scipy.stats import percentileofscore
 from tqdm import tqdm
-from src.analyses.cost_prediction.shared.data_extraction import create_document_vectors
 from src.core.algorithms.arules.mba_model import MbaModel
 from src.core.base.base_analysis import AnalysisBase
 from src.core.data_extraction.data_grouper import DataGrouper
 from src.core.io import config as hc
-from src.subheading_role_costs.helper_classes.writer import Writer
-from src.subheading_role_costs.helper_classes.subheading import Subheading
-from src.subheading_role_costs import layer_models
-from src.subheading_role_costs.layer_models.base import NoModelError
+from src.analyses.ontology_context_discovery.helper_classes.writer import Writer
+from src.analyses.ontology_context_discovery.helper_classes.subheading import Subheading
+from src.analyses.ontology_context_discovery import layer_models
+from src.analyses.ontology_context_discovery.layer_models.base import NoModelError
 
 class Analysis(AnalysisBase):
     '''Data analysis base class'''

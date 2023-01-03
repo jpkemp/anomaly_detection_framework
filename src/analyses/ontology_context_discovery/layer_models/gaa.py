@@ -3,8 +3,8 @@ from overrides import overrides
 from src.analyses.cost_prediction.shared.data_extraction import create_document_vectors
 from src.core.algorithms.arules.mba_model import MbaModel
 from src.core.data_extraction.data_grouper import DataGrouper
-from src.subheading_role_costs.helper_classes.role import Role
-from src.subheading_role_costs.layer_models.base import AbstractLayerModel, NoModelError
+from src.analyses.ontology_context_discovery.helper_classes.role import Role
+from src.analyses.ontology_context_discovery.layer_models.base import AbstractLayerModel, NoModelError
 
 class GaaRoles(AbstractLayerModel):
     '''Data analysis base class'''
