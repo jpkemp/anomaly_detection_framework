@@ -23,6 +23,7 @@ class Analysis(AnalysisBase):
         filters: dict = None
         rank_method: str = "WeightedMedian"
         role_modeller: str = "LDA"
+        primary_header_stems: tuple = ("3_T8_14", "3_T8_15")
 
     def __init__(self, logger, details, year):
         self.FINAL_COLS = []
@@ -45,9 +46,9 @@ class Analysis(AnalysisBase):
 
         final_provider_scores = []
         if rp.role_modeller == "GAA":
-            subheadings = Subheading.find_subheadings(data, True, ("3_T8_14", "3_T8_15"))
+            subheadings = Subheading.find_subheadings(data, True, rp.primary_header_stems)
         else:
-            subheadings = Subheading.find_subheadings(data, False, ("3_T8_14", "3_T8_15"))
+            subheadings = Subheading.find_subheadings(data, False, rp.primary_header_stems)
 
         for label, s in tqdm(subheadings.items()):
             try:
