@@ -26,6 +26,7 @@ class AnalysisBaseAttributes:
         self.logger = logger
         self.code_converter = CodeConverter(years[-1])
         self.plots = PlotUtils(logger)
+        self.graphs = MbsGraphColouring(logger, self.code_converter)
         self.test_details = details
         self.start_year = years[0]
         self.end_year = years[-1]

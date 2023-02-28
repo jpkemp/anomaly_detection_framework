@@ -1,5 +1,5 @@
 # Sequential pattern detection for identifying courses of treatment and anomalous claim behaviour in medical insurance
-The rationale for this analysis, and detailed description of the process, is to be presented at the Machine Learning and Artificial Intelligence in Bioinformatics and Medical Informatics workshop of the IEEE International Conference on Bioinformatics and Biomedicine 2022. <br/>
+The rationale for this analysis, and detailed description of the process, was presented at the Machine Learning and Artificial Intelligence in Bioinformatics and Medical Informatics workshop of the IEEE International Conference on Bioinformatics and Biomedicine 2022 [[1]](#1). <br/>
 It was initially conceived to examine radiation oncology claims, but may be adapted to any sequential claims where a course of treatment can be defined. <br/>
 Several steps are involved in the process: <br/>
 1. Identification of courses of treatment within patient data (using local periodic pattern mining on item codes least-generalised to the next layer of the defining ontology)
@@ -15,3 +15,7 @@ The code consists of three main files. Each of these draw on data constructs and
 • rule_combination achieves point 4-6 for a given grouping of courses of treatment.<br/>
 
 For analysis of another domain, where the definition of a course of treatment and the method for grouping comparable courses may be different, an alternate course of treatment extraction may be written. Some refactoring of the other files may be required, but should be minimal.
+
+## References
+<a id="1">[1]</a>
+J. Kemp, C. Barker, N. Good, and M. Bain, “Sequential pattern detection for identifying courses of treatment and anomalous claim behaviour in medical insurance,” in *2022 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)*, 2022, pp. 3039–3046

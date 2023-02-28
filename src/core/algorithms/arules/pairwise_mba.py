@@ -32,6 +32,51 @@ class PairwiseMba:
     def __init__(self, filters=None):
         self.update_filters(filters)
 
+    @classmethod
+    def calculate_min_occurence(cls, documents, min_support, absolute_min_support_count):
+        group_len = len(documents)
+        if min_support < 1:
+            min_occurrence = min_support * group_len
+        else:
+            min_occurrence = min_support
+
+        if min_occurrence < absolute_min_support_count:
+            min_occurrence = absolute_min_support_count
+
+        return min_occurrence
+
+    def calculate_item_occurences(self,
+                                  min_occurence,
+                                  items,
+                                  documents):
+        '''find item and co-occurence frequency'''
+        reduced_items = {"No other items": 0}
+        for item in items:
+            reduced_items[item] = 0
+        for doc in documents:
+            for item in doc:
+                reduced_items[item] += 1
+
+        keys = list(reduced_items.keys())
+        for item in keys:
+            if reduced_items[item] < min_occurence:
+                reduced_items.pop(item)
+
+        reduced_item_list = reduced_items.keys()
+        counts = pd.DataFrame(0, index=reduced_item_list, columns=reduced_item_list)
+        for doc in documents:
+            for item in doc:
+                if item not in reduced_item_list:
+                    continue
+
+                for item_2 in doc:
+                    if item_2 not in reduced_item_list:
+                        continue
+
+                    counts.at[item, item_2] += 1
+
+        return counts
+
     def exception_rules(self, antecedent, consequent, threshold, documents):
         '''Find exception rules for an item pair'''
         X_subset = []

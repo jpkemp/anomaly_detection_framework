@@ -9,7 +9,6 @@ from tqdm import tqdm
 from src.core.base.base_analysis import AnalysisBase
 from src.analyses.sequence_detection.shared.containers import ProviderCourseRules, UnusualSequenceRule
 from src.analyses.sequence_detection.shared.patient_interaction import PatientConverter
-from src.core.algorithms.sequence.format import FormatSpmf
 import src.core.io.config as hc
 
 class Analysis(AnalysisBase):

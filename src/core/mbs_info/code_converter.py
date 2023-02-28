@@ -139,9 +139,9 @@ class CodeConverter:
             try:
                 number = re.search(r'item\s(\d+)', derived_fee)[1]
             except TypeError:
-                if code == 51303:
+                if code == '51303':
                     return 113, fee_type
-                elif code == 31340 or code == '31340' or code == 44376 or code == '44376':
+                elif code == '31340' or code == '44376':
                     return 544.43, fee_type
                 else:
                     try:

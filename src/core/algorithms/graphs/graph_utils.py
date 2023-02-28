@@ -128,21 +128,6 @@ class GraphUtils():
 
         return graph
 
-    def igraph_from_dict(self, graph, pgv_input=False):
-        if pgv_input:
-            mapping = graph
-        else:
-            mapping = self.graphs.convert_pgv_to_simple(graph)
-
-        ret = igraph.Graph(directed=True)
-        ret.add_vertices(list(set(list(mapping.keys()) + list([a for v in mapping.values() for a in v]))))
-        ret.add_edges([(v, a) for v in mapping.keys() for a in mapping[v]])
-        for x in ret.vs:
-            x['label'] = x['name']
-
-
-        return ret
-
     @classmethod
     def convert_graph_to_adjacency_matrix(cls, graph):
         '''convert a graph dictionary to an adjacency matrix in pandas format'''

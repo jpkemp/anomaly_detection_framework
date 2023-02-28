@@ -61,6 +61,7 @@ class TestConfig:
     VALID: str = ""
     HEADER: dict = None
     DATE_FORMAT: str = ""
+    COST: str = ""
 
 @dataclass
 class FileConfig:

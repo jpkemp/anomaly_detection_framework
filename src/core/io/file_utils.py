@@ -1,11 +1,9 @@
 '''File and logging classes and functions'''
 import pickle
-import os
 import json
 from pathlib import Path
 from pydoc import locate
-import pandas as pd
-from src.core.io import config as hc
+import src.core.io.config as hc
 
 class FileUtils:
     '''I/O functions'''
@@ -35,12 +33,13 @@ class FileUtils:
 
     @classmethod
     def load_pickle(cls, file, in_data_folder=False):
+        '''helper function for loading pickled data'''
         if in_data_folder:
             path = cls.get_project_root() / f"data/{file}"
         else:
             path = Path(file)
 
-        with open(file, 'rb') as f:
+        with open(path, 'rb') as f:
             data = pickle.load(f)
 
         return data

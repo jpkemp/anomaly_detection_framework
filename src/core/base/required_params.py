@@ -2,6 +2,8 @@
 class ParamCombiner:
     '''Combines parameters from run_analysis and the defaults in the test case'''
     def __init__(self, d, rp):
+        self.analysis_file_location = None
+        self.data_extract_specification = None
         for k in d:
             assert isinstance(k, str)
             if k not in rp:

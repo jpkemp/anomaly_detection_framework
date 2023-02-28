@@ -2,9 +2,12 @@
 This repository contains an extract of a broader framework built to discover anomalous patterns among providers in MBS and PBS datasets, as part of an Industry PhD (IPhD) scholarship.<br/>
 It was designed to allow rapid prototyping of anomaly detection processes, as well as providing flexibility of input data, and reproducibility and traceability through automated logging functions. <br/>
 Implemented detection processes will be released alongside publication of papers describing the processes, as they occur. <br/>
-Two processes are currently included:
-• A sequence pattern detection process, presented at the Machine Learning and Artificial Intelligence in Bioinformatics and Medical Informatics workshop of the IEEE International Conference on Bioinformatics and Biomedicine 2022. <br/>
-• A context discovery and cost estimation process, to be presented at HEALTHINF 2023. <br/>
+Three processes are currently included: <br/>
+• An association rule mining process which compares graphs of reference and provider models, to be presented at MEDINFO 2023 [[1]](#1). <br/>
+• A context discovery and cost estimation process, presented at HEALTHINF 2023 [[2]](#2). <br/>
+• A sequence pattern detection process, presented at the Machine Learning and Artificial Intelligence in Bioinformatics and Medical Informatics workshop of the IEEE International Conference on Bioinformatics and Biomedicine 2022 [[3]](#3). <br/>
+
+More information about the design rationale behind the processes was presented at the 2023 Health Informatics and Knowledge Management conference [[4]](#4). <br/>
 
 ## Structure
 ### Overview
@@ -50,3 +53,16 @@ Please contact me with any questions
     width = 18 height = 15 /></a>
 <a href=https://www.researchgate.net/profile/James_Kemp6><img src=https://www.researchgate.net/apple-touch-icon-180x180.png
     width=15 height=15 /></a>
+
+## References
+<a id="1">[1]</a>
+J. Kemp, C. Barker, N. Good, and M. Bain, “Graphical association analysis for identifying variation in provider claims for joint replacement surgery,” in *Proceedings of the 19th World Congress on Medical and Health Informatics.* Amsterdam, Holland: IOS Press, 2023 (accepted for publication)
+
+<a id="2">[2]</a>
+J. Kemp, C. Barker, N. Good, and M. Bain, “Context discovery and cost  prediction for detection of anomalous medical claims, with ontology structure providing domain knowledge,” in *Proceedings of the 16th International Joint Conference on Biomedical Engineering Systems and Technologies - Volume 5: HEALTHINF .* California, USA: SCITEPRESS, 2023, pp. 29-40
+
+<a id="3">[3]</a>
+J. Kemp, C. Barker, N. Good, and M. Bain, “Sequential pattern detection for identifying courses of treatment and anomalous claim behaviour in medical insurance,” in *2022 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)*, 2022, pp. 3039–3046
+
+<a id="4">[4]</a>
+J. Kemp, C. Barker, N. Good, and M. Bain, “Developing an anomaly detection framework for Medicare claims,” in *Proceedings of ACSW 2023: Australasian Computer Science Week 2023*. New York, NY, USA: Association for Computing Machinery, 2023 (accepted for publication)

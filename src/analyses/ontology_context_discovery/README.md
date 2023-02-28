@@ -1,7 +1,7 @@
 # Context discovery and cost prediction for detection of anomalous medical claims, with ontology structure providing domain knowledge
 This analysis provides a flexible framework for discovering two levels of context within a set of related items, such as orthopaedic procedures, and determining typical costs for providers within each context. <br/>
 Providers with unusually high costs can then be flagged for further analysis. <br/>
-There were two driving goals behind creation of this framework: improving the cost metric used in the graphical association analysis project, and allowing detection of upcoding from one primary procedure to another. <br/>
+There were two driving goals behind creation of this framework: improving the cost metric used in the graphical association analysis project, and allowing detection of upcoding from one primary procedure to another (details were presented at HEALTHINF 2023 [[1]](#1)). <br/>
 This framework can be easily adapted to other domains utilising item codes, provided an ontology exists and a means of identifying the primary item code can be determined. <br/>
 The main analysis takes place in `role_costs.py`, which draws on data constructs and functions in the 'helper_classes' and 'layer_models' folders. <br/>
 
@@ -54,7 +54,7 @@ Supporting analyses were conducted to confirm the viability of the results, as d
 Result folder locations from each previous analysis file need to be set in the required parameters of supporting files; while somewhat cumbersome, this helps keep the runtime of each analysis short and allows flexibility when trialling different parameters.<br/>
 For some analyses a test hash is used to compare several results files using the same parameters; the test hash can be found in the log file.
 
-The supporting analysis files are as follows:
+The supporting analysis files are as follows: <br/>
 • `reproducibility.py`: compares multiple LDA runs for sensitivity analysis purposes<br/>
 • `lda_gaa_comp.py`: compares the provider ranking from LDA and GAA runs using rank-biased overlap<br/>
 • `provider_role_check.py`: finds the roles a provider has episodes assigned to<br/>
@@ -62,3 +62,7 @@ The supporting analysis files are as follows:
 • `psl_providers.py`: gets the derived managed speciality of each provider, and calculates the percentiles of individual claims.<br/>
 • `psl_coclaims.py`: calculates the percentiles of coclaims within the dms; this produces the primary output for examining provider claims to a cohort found through a traditional method.<br/>
 
+
+## References
+<a id="1">[1]</a>
+J. Kemp, C. Barker, N. Good, and M. Bain, “Context discovery and cost  prediction for detection of anomalous medical claims, with ontology structure providing domain knowledge,” in *Proceedings of the 16th International Joint Conference on Biomedical Engineering Systems and Technologies - Volume 5: HEALTHINF* . California, USA: SCITEPRESS, 2023, pp. 29-40

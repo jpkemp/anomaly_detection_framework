@@ -26,13 +26,26 @@ class MbaModel():
 
     def create_model(self, items, documents, min_support, min_support_count=3):
         '''Create an MBA model'''
+        min_occurence = self.pairwise.calculate_min_occurence(documents, min_support, min_support_count)
+        counts = self.pairwise.calculate_item_occurences(min_occurence, items, documents)
         d = self.pairwise.pairwise_market_basket(items,
                                                  documents,
                                                  min_support=min_support,
                                                  absolute_min_support_count=min_support_count,
                                                  max_p_value=1)
 
-        return d
+        # remove no other item:
+        if "No other items" in d:
+            for k in d["No other items"]:
+                if k not in d:
+                    d[k] = {}
+
+            d.pop("No other items")
+
+        for k in d:
+            d[k].pop("No other items", None)
+
+        return d, counts
 
     def create_graph(self, d, name, title, attrs=None, graph_style='fdp', file_extension='png'):
         '''Create a visual graph from a graph dictionary'''
@@ -47,24 +60,21 @@ class MbaModel():
             directed = True
 
         self.log(f"Graphing {title}")
-        # self.graphs.visual_graph(d, filename, title=title, directed=directed, node_attrs=attrs, graph_style=graph_style)
-        self.graphs.create_visnetwork(d, filename, title, attrs)
+        try:
+            self.graphs.visual_graph(d, filename, title=title, directed=directed, node_attrs=attrs, graph_style=graph_style)
+        except:
+            pass
+
+        try:
+            self.graphs.create_visnetwork(d, filename, title, attrs)
+        except:
+            pass
 
     def create_reference_model(self, min_support, name, documents, all_unique_items, node_labels, colour=True, graph_type=True, header=hc.ITEM):
         '''Commands related to creation, graphing and saving of the state models'''
         self.log(f"{len(documents)} transactions in {name}")
         self.log("Creating model")
-        d = self.create_model(all_unique_items, documents, min_support)
-        # remove no other item:
-        if "No other items" in d:
-            for k in d["No other items"]:
-                if k not in d:
-                    d[k] = {}
-
-            d.pop("No other items")
-
-        for k in d:
-            d[k].pop("No other items", None)
+        d, _ = self.create_model(all_unique_items, documents, min_support)
 
         labeller = ComponentLabeller(d, node_labels, "Other")
         for i, g in enumerate(labeller.components):
