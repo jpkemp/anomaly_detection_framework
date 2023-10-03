@@ -13,7 +13,7 @@ The process is as follows:
 5. Compare episode pair costs to expected costs for the role
 6. Rank providers based on the the cost differences for their episodes
 
-## 1. Patient events and episode pairs ##
+## 1-2. Patient events and episode pairs ##
 Data structures built on domain knowledge can help with interpretability and discovering relationships in the data which are useful from a human perspective; good clusters are in the eye of the beholder. <br/>
 Patient events create a patient-centred view of a procedure - what claims were made for one patient during a procedure? <br/>
 
@@ -24,7 +24,7 @@ Episodes of care are split into two constructions in this framework, and may be 
 Provider episodes include the item codes claimed within the episode of care, and are used to find the total cost of the episode of care. <br/>
 Ontology episodes convert the item codes in the provider episodes into *ontology locations*, creating a least-generalised view of the items, and are used for role discovery.
 
-## 2. Subheading collections ##
+## 3. Subheading collections ##
 The first level of context discovery is done by grouping patient events (and the associated episode pair). <br/>
 For each patient event, the most expensive item code in the group of interest (in this case, orthopaedics items) is assumed to be the primary item. <br/>
 The collections are created based on the ontology location of that item. <br/>
@@ -43,7 +43,7 @@ The ontology episodes are used here for two reasons: generalising to the ontolog
 This means fewer features are required to represent the items. <br/>
 Furthermore, it reduces the effect of minor variations (such as varying practices amongst providers regarding choice of item delivery) and focuses on associations between types of services provided, rather than the explicit item codes. <br/>
 
-## 4. Cost evaluation
+## 4-6. Cost evaluation
 The costs of each episode of care is calculated by summing the schedule fees of the items in the provider episode. <br/>
 A typical cost can then be calculated for each role in each subheading collection; the median is used here, but other metrics may also be suitable.<br/>
 A weighted cost difference is calculated for each provider by calculating the difference between their episode costs to the relevant typical cost (with a minimum of 0), and multiplying by the total number of episodes. <br/>
